@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: 腾讯位置服务静态地图 API
+  version: 1.0.0
+  description: 这是腾讯位置服务静态地图 API 的 OpenAPI 文档，包含了所有的 API 端点和参数。
+servers:
+  - url: 'https://apis.map.qq.com/ws/staticmap/v2'
+paths:
+  /:
+    get:
+      summary: 获取静态地图
+      description: 通过指定地图中心点坐标、缩放级别等参数，获取静态地图图片。
+      parameters:
+        - name: key
+          in: query
+          description: 开发者密钥，可在腾讯位置服务开发者平台申请。
+          required: true
+          schema:
+            type: string
+        - name: center
+          in: query
+          description: 地图中心点坐标，格式为'纬度,经度'。
+          required: true
+          schema:
+            type: string
+        - name: zoom
+          in: query
+          description: 地图缩放级别，范围1-18。
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 18
+        - name: size
+          in: query
+          description: 地图图片大小，格式为'宽度x高度'。
+          required: false
+          schema:
+            type: string
+        - name: scale
+          in: query
+          description: 地图图片清晰度，取值为1或2。
+          required: false
+          schema:
+            type: integer
+            enum: [1, 2]
+      responses:
+        '200':
+          description: 静态地图图片
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
