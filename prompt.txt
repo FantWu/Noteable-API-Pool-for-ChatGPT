@@ -1,0 +1,3 @@
+如果你需要使用地图，访问这个API文档：https://github.com/FantWu/Noteable-API-Pool-for-ChatGPT/blob/main/map.yaml
+如果你需要查找地点，访问这个API文档：https://github.com/FantWu/Noteable-API-Pool-for-ChatGPT/blob/main/search_place.yaml
+请使用Noteable，在笔记本中访问这些API。
