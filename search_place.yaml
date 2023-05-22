@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: Tencent LBS Web Service API
+  version: 1.0.0
+paths:
+  /ws/place/v1/search:
+    get:
+      summary: Place Search API
+      description: This API is used to search for places based on keywords within a specified boundary.
+      parameters:
+        - name: keyword
+          in: query
+          description: The search keyword. For example, "coffee".
+          required: true
+          schema:
+            type: string
+            example: "coffee"
+        - name: boundary
+          in: query
+          description: The search boundary. For example, "region(北京,0)" for the whole Beijing area.
+          required: true
+          schema:
+            type: string
+            example: "region(北京,0)"
+        - name: filter
+          in: query
+          description: The filter condition. For example, "category=咖啡厅" to only search for coffee shops.
+          required: false
+          schema:
+            type: string
+            example: "category=咖啡厅"
+        - name: orderby
+          in: query
+          description: The sort order. For example, "_distance" for ascending distance order.
+          required: false
+          schema:
+            type: string
+            example: "_distance"
+        - name: page_size
+          in: query
+          description: The number of results per page. For example, "20" for 20 results per page.
+          required: false
+          schema:
+            type: integer
+            example: 20
+        - name: page_index
+          in: query
+          description: The page number. For example, "1" for the first page.
+          required: false
+          schema:
+            type: integer
+            example: 1
+        - name: key
+          in: query
+          description: The key applied by the user. For example, "AIZBZ-DSHKU-26TV5-4JRYV-6XZ7J-3TBZF".
+          required: true
+          schema:
+            type: string
+            example: "AIZBZ-DSHKU-26TV5-4JRYV-6XZ7J-3TBZF"
+      responses:
+        '200':
+          description: Successful response
